@@ -34,7 +34,7 @@ func _physics_process(delta):
 		velocity.y = jump_force
 		stamina_val -= 20
 	elif Input.is_action_just_pressed("char_move_jump") and is_on_floor():
-		velocity.y = jump_force/4
+		velocity.y = jump_force/1.5
 
 	var input_dir = Vector3(
 		Input.get_axis("char_move_left", "char_move_right"),
@@ -65,7 +65,6 @@ func _input(event):
 @onready var stamina_bar := $"../ProgressBar"
 
 func _process(delta: float) -> void:
-	
 	if speed > speed_default:
 		running = true
 	stamina_bar.min_value = stamina_min

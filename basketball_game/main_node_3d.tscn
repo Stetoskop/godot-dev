@@ -95,3 +95,9 @@ grow_vertical = 2
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, 0)
 mesh = SubResource("BoxMesh_0kftu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.87033, 0)
+visible = false
+light_energy = 13.848
+sky_mode = 1
