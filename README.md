@@ -1,2 +1,2 @@
-# Godot-Dev
+# godot-dev
 Shared repository for learning
