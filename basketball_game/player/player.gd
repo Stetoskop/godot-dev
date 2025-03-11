@@ -146,4 +146,5 @@ func _process(delta: float) -> void:
 
 
 func _on_ball_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
-	var ball: Ball = $"../Ball"
+	#var ball: Ball = $"../Ball"
+	pass # ADD PICKUP HERE
