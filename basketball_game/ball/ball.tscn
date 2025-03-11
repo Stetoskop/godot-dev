@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://n2i2ihw8xnbm"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dnnlr"]
+bounce = 0.51
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnnlr"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.75, 0.38625, 0.0225, 1)
+ao_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_dnnlr"]
+material = SubResource("StandardMaterial3D_dnnlr")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6plaf"]
+
+[node name="RigidBody3D" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_dnnlr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_dnnlr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_6plaf")

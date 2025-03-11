@@ -13,12 +13,13 @@ config_version=5
 config/name="basketball_game"
 run/main_scene="uid://crt2hu56hrjgg"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://other/icon.svg"
 
 [display]
 
-window/size/viewport_width=2560
-window/size/viewport_height=1440
+window/size/viewport_width=2357
+window/size/viewport_height=1322
+window/size/initial_position_type=2
 
 [input]
 
