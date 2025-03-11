@@ -143,3 +143,7 @@ func _process(delta: float) -> void:
 		running = true
 	if print_debug:
 		print("Stamina: " + str(stamina_val) + " Speed: " + str(speed) + " Jump Count: " + str(jump_count) + " Jump: " + str(!is_on_floor()) + " J-Force: " + str(jump_force) + " Running: " + str(running))
+
+
+func _on_ball_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+	var ball: Ball = $"../Ball"

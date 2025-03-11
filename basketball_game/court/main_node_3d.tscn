@@ -44,10 +44,21 @@ shape = SubResource("BoxShape3D_3c7s4")
 [node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("camera")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.041, 0)
 script = ExtResource("2_qk68w")
+print_debug = null
+speed = null
+speed_run = null
+jump_force = null
+jump_force_exhausted = null
 jump_force_double = 5.0
 jump_count_max = 3
 stamina_val = 10000.0
+stamina_min = null
 stamina_max = 10000.0
+stamina_gain = null
+stamina_drain_run = null
+stamina_drain_jump = null
+stamina_drain_jump_double = null
+mouse_sensitivity = null
 camera = NodePath("POV")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
@@ -119,3 +130,5 @@ mesh = ExtResource("4_3c2lm")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hoop"]
 transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_504ik")
+
+[connection signal="input_event" from="Ball" to="Player" method="_on_ball_input_event"]
