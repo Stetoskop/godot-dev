@@ -11,5 +11,16 @@ config_version=5
 [application]
 
 config/name="Gordle"
+run/main_scene="uid://cbcqhviimjfd5"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://scenes/menu/godot_icon.svg"
+
+[autoload]
+
+Global="*res://Global.gd"
+
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=1920
+window/size/resizable=false

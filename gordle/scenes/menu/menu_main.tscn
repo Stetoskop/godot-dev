@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://cbcqhviimjfd5"]
+
+[ext_resource type="Texture2D" uid="uid://dkh2siigqg4l3" path="res://textures/133_leather_DIF.jpg" id="1_d2s0i"]
+[ext_resource type="Texture2D" uid="uid://75rfixgouola" path="res://textures/133_leather_DIF_n.jpg" id="2_blywf"]
+[ext_resource type="Script" uid="uid://c42tdj1f02tl6" path="res://scenes/menu/light.gd" id="3_kcsjg"]
+[ext_resource type="Texture2D" uid="uid://bpid8w42f32kc" path="res://scenes/menu/godot_icon.svg" id="4_wgaug"]
+[ext_resource type="Texture2D" uid="uid://bqymnb26ku6n7" path="res://scenes/menu/start_game.png" id="5_blywf"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_xlk0u"]
+diffuse_texture = ExtResource("1_d2s0i")
+normal_texture = ExtResource("2_blywf")
+
+[sub_resource type="Gradient" id="Gradient_612a3"]
+offsets = PackedFloat32Array(0.243506, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_snne4"]
+gradient = SubResource("Gradient_612a3")
+width = 128
+height = 128
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_kcsjg"]
+diffuse_texture = ExtResource("5_blywf")
+texture_filter = 3
+
+[node name="MenuMain" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [1080.0]
+
+[node name="Backdrop" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(540, 960)
+rotation = 1.57079
+scale = Vector2(0.80398, 0.452239)
+texture = SubResource("CanvasTexture_xlk0u")
+metadata/_edit_lock_ = true
+
+[node name="Light" type="PointLight2D" parent="."]
+position = Vector2(1.95016, -268.521)
+rotation = -0.261799
+scale = Vector2(17.8928, 21.6469)
+color = Color(1, 0.501961, 0, 1)
+energy = 0.8
+texture = SubResource("GradientTexture2D_snne4")
+offset = Vector2(0, 64)
+height = 100.0
+script = ExtResource("3_kcsjg")
+metadata/_edit_lock_ = true
+
+[node name="GodotIcon" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.270588)
+position = Vector2(1000, 1840)
+texture = ExtResource("4_wgaug")
+metadata/_edit_lock_ = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1080.0
+offset_bottom = 1920.0
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="Control"]
+light_mask = 0
+layout_mode = 0
+offset_left = 368.0
+offset_top = 456.0
+offset_right = 680.0
+offset_bottom = 592.0
+icon = SubResource("CanvasTexture_kcsjg")
+icon_alignment = 1
+expand_icon = true
