@@ -26,7 +26,8 @@ diffuse_texture = ExtResource("5_blywf")
 texture_filter = 3
 
 [node name="MenuMain" type="Node2D"]
-metadata/_edit_horizontal_guides_ = [1080.0]
+metadata/_edit_vertical_guides_ = [540.0]
+metadata/_edit_horizontal_guides_ = [960.0]
 
 [node name="Backdrop" type="Sprite2D" parent="."]
 texture_repeat = 2
@@ -64,10 +65,11 @@ metadata/_edit_lock_ = true
 [node name="Button" type="Button" parent="Control"]
 light_mask = 0
 layout_mode = 0
-offset_left = 368.0
-offset_top = 456.0
-offset_right = 680.0
-offset_bottom = 592.0
+offset_left = 72.0
+offset_top = 551.0
+offset_right = 1008.0
+offset_bottom = 831.0
+pivot_offset = Vector2(468, 144)
 icon = SubResource("CanvasTexture_kcsjg")
 icon_alignment = 1
 expand_icon = true
