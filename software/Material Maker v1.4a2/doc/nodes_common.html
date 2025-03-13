@@ -1,0 +1,288 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Common properties of nodes &mdash; Material Maker  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=ef8a6cdb" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b3ba4146"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="_static/js/custom.js?v=c682fb1d"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Shader nodes" href="shader_nodes.html" />
+    <link rel="prev" title="Nodes overview" href="nodes.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Material Maker
+              <img src="_static/icon.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_interface.html">User interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="nodes.html">Nodes overview</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Common properties of nodes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#outputs">Outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inputs">Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#randomness">Randomness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#variadic-nodes">Variadic nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modifying-nodes">Modifying nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="shader_nodes.html">Shader nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="material_nodes.html">Material nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="texture_nodes.html">Texture nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="remote_nodes.html">Remote nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subgraph_nodes.html">Subgraph nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reroute_nodes.html">Reroute nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="base_library.html">Nodes library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="export.html">Exporting Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command_line.html">Command line arguments</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Material Maker</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="nodes.html">Nodes overview</a></li>
+      <li class="breadcrumb-item active">Common properties of nodes</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="common-properties-of-nodes">
+<h1>Common properties of nodes<a class="headerlink" href="#common-properties-of-nodes" title="Permalink to this heading"></a></h1>
+<p>The nodes will always have outputs that will be connected to the inputs of other
+nodes. They may also (and will probably) have parameters that can be modified
+in the user interface, and inputs to receive data from other nodes.</p>
+<img alt="_images/node_example.png" class="align-center" src="_images/node_example.png" />
+<section id="outputs">
+<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this heading"></a></h2>
+<p>Nodes can have several outputs that represent the data they provide. Each node output can be
+connected to several node inputs. Each node output (and input) can be:</p>
+<ul class="simple">
+<li><p>a <strong>greyscale image</strong> (shown in grey)</p></li>
+<li><p>a <strong>color image</strong> (shown in blue)</p></li>
+<li><p>an <strong>RGBA image</strong> (shown in blue)</p></li>
+<li><p>a <strong>2D signed distance function</strong> (shown in orange)</p></li>
+<li><p>a <strong>3D signed distance function</strong> (shown in orange-red), with or without a color index</p></li>
+<li><p>a color or greyscale <strong>3D texture</strong> (shown in violet), that can be associated to
+a color index, which makes it possible to associate several 3D textures in a single
+3D scene</p></li>
+<li><p><strong>Fill information</strong> (shown in green), that contain the bounding box of the
+area. This information is generated by the Fill node and a few pattern nodes, and is
+used as input by the Fill companion nodes</p></li>
+</ul>
+<p>Greyscale, color and RGBA inputs and outputs can be connected to each other and will automatically be
+converted when required.</p>
+<p>2D signed distance functions have a specific preview that shows the associated signed distance
+field. They can be converted into greyscale images using the <cite>sdShow</cite> node.</p>
+<p>3D signed distance functions have a specific preview that shows the lit 3D scene. They can be
+converted into a greyscale height map and a color normal map using the <cite>Render</cite> node.</p>
+<p>3D textures are previewed on a sphere</p>
+<p>Clicking on an output slot will show the corresponding preview at the bottom of the node.
+When a node has several outputs, only one of them can be previewed at a time. The previewed
+output slot will have a circle around it, and clicking it again will hide the preview.</p>
+</section>
+<section id="inputs">
+<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this heading"></a></h2>
+<p>Inputs (if any) can have the same types as outputs. An input is always connected to at most
+one output. Inputs generally have a default value that is used when it is not connected.</p>
+</section>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a></h2>
+<p>Parameters are used to configure nodes. The following types are supported:</p>
+<ul>
+<li><p><strong>float</strong> parameters are used whenever a real number is needed. Float parameters have
+bounds, but it is possible to ignore them (at your own risk). To modify a float parameter,
+click in the text field and enter a new value, or click and drag left or right to decrease
+or decrease its value. When the lower or upper bound is reached, the value will stick to it,
+but dragging again from there makes it possible to go beyond the limit.</p>
+<p>In most cases, float parameters also support expressions (written in GLSL syntax),
+where other parameters and named parameters are accepted and must be prefixed with
+a dollar sign. This feature is useful when two parameters of the same node must
+depend on each other, or when several parameters of several nodes of a subgraph
+must be calculated from one or more named parameters.</p>
+<p>The <em>$time</em> variable can also be used in parameter expressions to define animations
+in generated shaders, but generated <strong>Static PBR Materials</strong> will still be
+static (this feature could for example be used to export variations of the
+same material). Other predefined material types can fully benefit from this
+feature.</p>
+<p>Randomness can be added to any node by using the <em>$rnd(min, max)</em> function,
+that will generate a random number between <em>min</em> and <em>max</em>. The node’s seed
+can then be modified, copied or locked using the die button.</p>
+<p>Right clicking a float parameter field will show an expression editor, that
+checks the syntax of the expression. Whenever the expression is incorrect,
+the Apply and OK buttons will be disabled. You can still use the Enter key
+to apply the changes if necessary.</p>
+</li>
+<li><p><strong>size</strong> parameters are power of two values for the image size. They are used when
+actually storing data in a texture, or when performing resolution dependent calculations
+such as convolutions. They are shown as drop down list boxes.</p></li>
+<li><p><strong>enumerated</strong> parameters are used when nodes have different named options and shown as
+drop down list boxes.</p></li>
+<li><p><strong>boolean</strong> parameters are shown as check boxes.</p></li>
+<li><p><strong>color</strong> parameters are shown as Color selectors.</p></li>
+<li><p><strong>gradient</strong> parameters are edited in dedicated editor widgets. Cursors can be added by
+double-clicking in the lower part of the widget, dragged left and right using the left
+mouse button, and removed using the right mouse button.</p>
+<img alt="_images/gradient_editor.png" class="align-center" src="_images/gradient_editor.png" />
+<p>The drop down list box can be used to select one of the 4 interpolation options.</p>
+<p>Double clicking in the upper part of the gradient editor will open a larger version of the
+widget to move cursors mode precisely.</p>
+<p>Finally, it is possible to drag and drop from the upper part of a gradient editor widget to
+another to duplicate the gradient parameter, or from any <strong>Colorize</strong> node variant in the
+library to a gradient editor widget.</p>
+</li>
+<li><p><strong>curve</strong> parameters are edited using a dedicated dialog window that is shown when clicking on
+the parameter.</p>
+<a class="reference internal image-reference" href="_images/curve_editor.png"><img alt="_images/curve_editor.png" class="align-center" src="_images/curve_editor.png" style="width: 467.5px; height: 536.5px;" /></a>
+<p>The curve is defined by its control points that define their value and left and right slopes
+for given abscissas. Control points (as well as slope control points) can be grabbed and moved
+using the left mouse button.</p>
+<p>New control points can be added by double-clicking in the editor, and control points can be
+removed using the right mouse button.</p>
+<p>The curve editor comes with a selection of presets available in the <strong>Presets</strong> menu and an
+<strong>Invert</strong> button to invert the curve. Presets included are: Linear, EaseOut, EaseInOut,
+EaseOut, SawTooth, Bounce and Bevel.</p>
+</li>
+<li><p><strong>polygon</strong> parameters are edited using a dedicated dialog window that is shown when clicking on
+the parameter.</p>
+<a class="reference internal image-reference" href="_images/polygon_editor.png"><img alt="_images/polygon_editor.png" class="align-center" src="_images/polygon_editor.png" style="width: 233.5px; height: 262.5px;" /></a>
+<p>The polygon parameter is defined by its vertices that can be grabbed and moved using the left
+mouse button.</p>
+<p>New vertices can be created by double-clicking in the editor (when created, a new vertex will
+be used to split the closest edge), and deleted using the right mouse button.</p>
+</li>
+</ul>
+</section>
+<section id="randomness">
+<h2>Randomness<a class="headerlink" href="#randomness" title="Permalink to this heading"></a></h2>
+<p>Nodes that provide random patterns have an implicit <strong>seed</strong> parameter. It is not possible
+to edit it directly, but clicking the small die button in the node’s title bar will change
+its value.
+Right clicking this button will show a context menu that can be used to copy and paste the
+seed as well as lock and unlock it. A node with locked seed will not be affected by its
+parents and will have the same seed in all variations.</p>
+<img alt="_images/random_node.png" class="align-center" src="_images/random_node.png" />
+<p>Subgraphs also have their seed and transmit it to their children unless not configured to
+do so, or the children’s seeds are frozen.</p>
+</section>
+<section id="variadic-nodes">
+<h2>Variadic nodes<a class="headerlink" href="#variadic-nodes" title="Permalink to this heading"></a></h2>
+<p>Nodes can have a variable number of inputs, parameters and outputs depending on the
+context.</p>
+<img alt="_images/variadic_node.png" class="align-center" src="_images/variadic_node.png" />
+<p>Such nodes have a specific icon in their title bar. Clicking tht icon with the left mouse
+button will increase their variadic size, and the right mouse button will show a menu
+with the minimum size (depending on current connections) and a few other choices.</p>
+<p>The variadic size of the node in the number of instances of its variadic parameters
+and ports.</p>
+</section>
+<section id="modifying-nodes">
+<h2>Modifying nodes<a class="headerlink" href="#modifying-nodes" title="Permalink to this heading"></a></h2>
+<p>Most nodes in Material Maker can be modified, but they first have to be made editable.
+To do this, select a node, and use the <strong>Tools -&gt; Make the selected nodes editable</strong>
+menu item or the <strong>Control+W</strong> keyboard shortcut.</p>
+<img alt="_images/editable_node.png" class="align-center" src="_images/editable_node.png" />
+<p>When made editable, 3 buttons are shown at the bottom of the node:</p>
+<ul class="simple">
+<li><p>A pencil-shaped button to edit the node (the precise behavior of this button depends
+on the node type)</p></li>
+<li><p>A folder-like button to load an existing node template</p></li>
+<li><p>A floppy disk button to save the node as a template</p></li>
+</ul>
+<p>Loading and saving templates are only useful when contributing new nodes
+for Material Maker. Modifying your Material Maker installation may break
+compatibility with existing materials, and is not recommended unless you
+know what you are doing.</p>
+<p>To be reusable directly, templates must be saved in the <strong>generators</strong> directory in
+the install dir (or the <strong>addon/material_maker/nodes</strong> directory when using Material
+Maker as a Godot addon). All nodes templates saved in this directory are shown in
+the <strong>Tools -&gt; Create</strong> menu.</p>
+<p>It is not recommended to save newly created nodes as templates, but this
+makes them a lot easier to access and results in smaller material files (only
+references to the templates are saved and not the whole node description).
+Consequently, modifying a template without ensuring compatibility with the old
+version (i.e. removing or renaming parameters, removing or swapping inputs or
+outputs) may break existing materials, and should thus be avoided.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nodes.html" class="btn btn-neutral float-left" title="Nodes overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="shader_nodes.html" class="btn btn-neutral float-right" title="Shader nodes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2018-2023, Rodolphe Suescun.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
