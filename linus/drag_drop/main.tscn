@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://064ww3dyb7em"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_8sxw7"]
+[ext_resource type="PackedScene" uid="uid://b7lstwl2kt8mp" path="res://objects/ball.tscn" id="2_o3iky"]
+[ext_resource type="PackedScene" uid="uid://bdyp1kk7e62ou" path="res://objects/ground_beach/beach.tscn" id="2_u6cfi"]
+[ext_resource type="PackedScene" uid="uid://c0kymo4e0ma8" path="res://objects/mouse_collider/mouse_collider.tscn" id="4_pwt3o"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_8sxw7")
+beach_ball_scene = ExtResource("2_o3iky")
+spawn_count = 15
+metadata/_edit_vertical_guides_ = [3339.0]
+metadata/_edit_horizontal_guides_ = [1765.0]
+
+[node name="Ground" parent="." instance=ExtResource("2_u6cfi")]
+position = Vector2(636, 308)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1306, 735)
+zoom = Vector2(0.635, 0.635)
+
+[node name="MouseCollider" parent="." instance=ExtResource("4_pwt3o")]
+
+[editable path="Ground"]

@@ -1,0 +1,8 @@
+# Written in macOS TextEdit
+Test file for text_edit in Godot
+
+# Written in text_edit through Godot
+Hello World!
+
+# Written in text_edit, which is now somewhat finished
+Hello Malmö!

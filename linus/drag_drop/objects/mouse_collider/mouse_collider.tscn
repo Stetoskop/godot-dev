@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0kymo4e0ma8"]
+
+[ext_resource type="Script" path="res://objects/mouse_collider/mouse_collider.gd" id="1_kk518"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_68gl0"]
+radius = 30.0167
+
+[node name="MouseCollider" type="AnimatableBody2D" groups=["mouse"]]
+script = ExtResource("1_kk518")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["mouse"]]
+shape = SubResource("CircleShape2D_68gl0")

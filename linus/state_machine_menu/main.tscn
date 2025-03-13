@@ -1,0 +1,84 @@
+[gd_scene load_steps=15 format=3 uid="uid://bcb80yl3nxie6"]
+
+[ext_resource type="Script" uid="uid://cpdflfye0tjkf" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://22qg7x7555wk" path="res://sprite/dice.png" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://cwwka4pqb7a48" path="res://sprite/cross.png" id="3_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://bl78li5d8m8qi" path="res://sprite/cross_normal.png" id="4_lquwl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bvp3"]
+atlas = ExtResource("2_h2yge")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lquwl"]
+atlas = ExtResource("2_h2yge")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mycd"]
+atlas = ExtResource("2_h2yge")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_272bh"]
+atlas = ExtResource("2_h2yge")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vw27"]
+atlas = ExtResource("2_h2yge")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kek77"]
+atlas = ExtResource("2_h2yge")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4c57u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bvp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lquwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mycd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_272bh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vw27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kek77")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_7mycd"]
+diffuse_texture = ExtResource("3_1bvp3")
+normal_texture = ExtResource("4_lquwl")
+
+[sub_resource type="Gradient" id="Gradient_1bvp3"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lquwl"]
+gradient = SubResource("Gradient_1bvp3")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_0xm2m")
+
+[node name="Die" type="AnimatedSprite2D" parent="."]
+position = Vector2(32, 32)
+sprite_frames = SubResource("SpriteFrames_4c57u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(224, 200)
+scale = Vector2(10.72, 10.72)
+texture = SubResource("CanvasTexture_7mycd")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(176, 232)
+texture = SubResource("GradientTexture2D_lquwl")
+height = 217.0

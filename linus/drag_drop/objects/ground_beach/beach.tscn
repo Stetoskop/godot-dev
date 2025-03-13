@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bdyp1kk7e62ou"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+modulate = Color(0.2624, 0.48, 0.1536, 1)
+self_modulate = Color(0.2624, 0.48, 0.1536, 1)
+polygon = PackedVector2Array(48, 263, 234, 301, 402, 248, 547, 431, 750, 547, 903, 594, 1033, 456, 4018, -722, 3989, 2544, -1968, 2467, -2096, -1001)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.941176, 0.937255, 0.647059, 0.796078)
+polygon = PackedVector2Array(48, 263, 234, 301, 402, 248, 547, 431, 750, 547, 903, 594, 1033, 456, 4018, -722, 3989, 2544, -1968, 2467, -2096, -1001)

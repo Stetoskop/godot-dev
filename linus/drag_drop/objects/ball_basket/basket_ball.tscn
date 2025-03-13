@@ -1,0 +1,93 @@
+[gd_scene load_steps=16 format=3 uid="uid://pau01ujxc761"]
+
+[ext_resource type="Texture2D" uid="uid://b064ftgdrutlp" path="res://objects/ball_basket/basket_ball_image.png" id="1_5m8r2"]
+[ext_resource type="Script" path="res://objects/ball_basket/basket_ball.gd" id="1_87mkc"]
+[ext_resource type="AudioStream" uid="uid://dr4sk0c528uoh" path="res://objects/ball_basket/hit1.mp3" id="2_dn184"]
+[ext_resource type="Texture2D" uid="uid://ces4f6myoj0j6" path="res://objects/ball_basket/SpecularMap.png" id="3_3yubc"]
+[ext_resource type="AudioStream" uid="uid://cqcw72kkgyyvn" path="res://objects/ball_basket/hit2.mp3" id="3_umsxr"]
+[ext_resource type="Texture2D" uid="uid://c711boupe1u5j" path="res://objects/ball_basket/normal linnea.png" id="4_3hs5a"]
+[ext_resource type="AudioStream" uid="uid://mxt5kd18rvr0" path="res://objects/ball_basket/hit3.mp3" id="4_tfq5g"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8u3aq"]
+friction = 0.82
+rough = true
+bounce = 0.62
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_crhuh"]
+radius = 64.15
+
+[sub_resource type="GDScript" id="GDScript_u0unb"]
+script/source = "extends CollisionShape2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jl3v8"]
+radius = 66.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uetsf"]
+random_pitch = 2.0
+streams_count = 2
+stream_0/stream = ExtResource("2_dn184")
+stream_1/stream = ExtResource("3_umsxr")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8so4w"]
+random_pitch = 1.3
+streams_count = 1
+stream_0/stream = ExtResource("4_tfq5g")
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4ecf6"]
+polygon = PackedVector2Array(-46, 45, -26, 58, -1, 64, 27, 57, 46, 45, 59, 24, 64, 0, 60, -22, 45, -45, 23, -59, 0, -64, -28, -58, -46, -44, -60, -23, -63, 1, -58, 27)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_7euk0"]
+diffuse_texture = ExtResource("1_5m8r2")
+normal_texture = ExtResource("4_3hs5a")
+specular_texture = ExtResource("3_3yubc")
+specular_color = Color(1, 0.765667, 0.62, 1)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 3
+collision_mask = 3
+mass = 0.6
+physics_material_override = SubResource("PhysicsMaterial_8u3aq")
+script = ExtResource("1_87mkc")
+ball_scale_mult = 2.0
+pitch_min = 1.0
+pitch_max = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_crhuh")
+script = SubResource("GDScript_u0unb")
+
+[node name="Sound Collision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sound Collision"]
+shape = SubResource("CircleShape2D_jl3v8")
+
+[node name="AreaHit" type="AudioStreamPlayer2D" parent="Sound Collision"]
+stream = SubResource("AudioStreamRandomizer_uetsf")
+pitch_scale = 1.14
+
+[node name="MouseHit" type="AudioStreamPlayer2D" parent="Sound Collision"]
+stream = SubResource("AudioStreamRandomizer_8so4w")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+modulate = Color(1, 1, 1, 0.403922)
+self_modulate = Color(1, 1, 1, 0.282353)
+occluder = SubResource("OccluderPolygon2D_4ecf6")
+
+[node name="BasketBallImage" type="Sprite2D" parent="."]
+light_mask = 3
+position = Vector2(0.375288, 0.375288)
+scale = Vector2(0.430831, 0.430831)
+texture = SubResource("CanvasTexture_7euk0")
+
+[connection signal="body_entered" from="Sound Collision" to="." method="_on_sound_collision_body_entered"]

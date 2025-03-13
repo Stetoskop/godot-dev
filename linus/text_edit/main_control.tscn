@@ -1,0 +1,106 @@
+[gd_scene load_steps=7 format=3 uid="uid://db4k5mnwkiqd7"]
+
+[ext_resource type="Script" uid="uid://b1qceg7l88vv2" path="res://main_control.gd" id="1_mrtml"]
+[ext_resource type="Script" uid="uid://vu4isn1qtsau" path="res://options_row.gd" id="2_f3abk"]
+[ext_resource type="Script" uid="uid://dnkxlpp1t6mga" path="res://border_info.gd" id="2_f3csd"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mrtml"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_5d0gi"]
+alt_pressed = true
+keycode = 77
+
+[sub_resource type="Shortcut" id="Shortcut_mrtml"]
+events = [SubResource("InputEventKey_5d0gi")]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mrtml")
+metadata/_edit_horizontal_guides_ = [68.0]
+metadata/_edit_vertical_guides_ = [200.0, 415.0, 603.0]
+
+[node name="TextEdit" type="TextEdit" parent="."]
+custom_minimum_size = Vector2(1000, 800)
+layout_mode = 0
+offset_top = 68.0
+offset_right = 1000.0
+offset_bottom = 1000.0
+placeholder_text = "Skriv lite.."
+scroll_smooth = true
+caret_blink = true
+caret_blink_interval = 0.55
+metadata/_edit_lock_ = true
+
+[node name="OptionsRow" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1000.0
+offset_bottom = 68.0
+script = ExtResource("2_f3abk")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="OptionsRow"]
+layout_mode = 0
+offset_right = 1000.0
+offset_bottom = 68.0
+color = Color(0.212305, 0.212305, 0.212305, 1)
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="OptionsRow"]
+layout_mode = 2
+offset_right = 1000.0
+offset_bottom = 68.0
+metadata/_edit_lock_ = true
+
+[node name="FileMenu" type="MenuButton" parent="OptionsRow/Panel"]
+material = SubResource("CanvasItemMaterial_mrtml")
+layout_mode = 0
+offset_right = 201.0
+offset_bottom = 68.0
+shortcut = SubResource("Shortcut_mrtml")
+text = "Menu"
+item_count = 3
+popup/item_0/text = "Open"
+popup/item_0/id = 0
+popup/item_1/text = "Save as"
+popup/item_1/id = 1
+popup/item_2/text = "Quit"
+popup/item_2/id = 2
+metadata/_edit_lock_ = true
+
+[node name="OpenFileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 2
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+show_hidden_files = true
+
+[node name="SaveFileDialog" type="FileDialog" parent="."]
+title = "Save File"
+initial_position = 2
+access = 2
+show_hidden_files = true
+
+[node name="BorderInfo" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.498039)
+layout_mode = 0
+offset_left = 603.0
+offset_right = 791.0
+offset_bottom = 68.0
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_f3csd")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="_file_opened" from="." to="BorderInfo" method="_on_main__file_opened"]
+[connection signal="_file_saved" from="." to="BorderInfo" method="_on_main__file_saved"]
+[connection signal="file_selected" from="OpenFileDialog" to="." method="_on_open_file_dialog_file_selected"]
+[connection signal="file_selected" from="SaveFileDialog" to="." method="_on_save_file_dialog_file_selected"]

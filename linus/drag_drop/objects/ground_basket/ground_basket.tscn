@@ -1,0 +1,241 @@
+[gd_scene load_steps=29 format=3 uid="uid://d1a8t2f2ygk7b"]
+
+[ext_resource type="Script" path="res://objects/ground_basket/main.gd" id="1_c632p"]
+[ext_resource type="Texture2D" uid="uid://degyaq8aoctjv" path="res://objects/ground_basket/brick_texture/32_rustic bricks texture.jpg" id="2_ky717"]
+[ext_resource type="Texture2D" uid="uid://0bnotbkw8800" path="res://objects/ground_basket/brick_texture/32_rustic bricks_NORM.jpg" id="3_ui4rj"]
+[ext_resource type="Texture2D" uid="uid://b4o7vyo06k56i" path="res://objects/ground_basket/brick_texture/32_rustic bricks_SPEC.jpg" id="4_owwm0"]
+[ext_resource type="Texture2D" uid="uid://cyhxm2kvh5dpd" path="res://objects/ground_basket/133_Wet asphalt pbr seamless texture hr/133_Wet asphalt_DIFF.jpg" id="5_35g1g"]
+[ext_resource type="Texture2D" uid="uid://brp61vm3pwdvd" path="res://objects/ground_basket/133_Wet asphalt pbr seamless texture hr/133_Wet asphalt_NORM.jpg" id="6_hhfu1"]
+[ext_resource type="Texture2D" uid="uid://b1d10ct418wad" path="res://objects/ground_basket/133_Wet asphalt pbr seamless texture hr/133_Wet asphalt_SPEC.jpg" id="7_3d8wl"]
+[ext_resource type="Texture2D" uid="uid://cdd8ojq43htpb" path="res://objects/ground_basket/133_Wet asphalt pbr seamless texture hr/133_Wet asphalt_DIFF_b.jpg" id="8_kj38e"]
+[ext_resource type="Texture2D" uid="uid://b3gbidvsxnnvd" path="res://objects/hoop/hoop_back.png" id="9_w0tr1"]
+[ext_resource type="PackedScene" uid="uid://pau01ujxc761" path="res://objects/ball_basket/basket_ball.tscn" id="10_wsxve"]
+[ext_resource type="Texture2D" uid="uid://db3xsnux5fajl" path="res://objects/hoop/hoop_front.png" id="10_xus46"]
+[ext_resource type="PackedScene" uid="uid://c0kymo4e0ma8" path="res://objects/mouse_collider/mouse_collider.tscn" id="11_vvb28"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_sfevr"]
+diffuse_texture = ExtResource("2_ky717")
+normal_texture = ExtResource("3_ui4rj")
+specular_texture = ExtResource("4_owwm0")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_anxhq"]
+diffuse_texture = ExtResource("5_35g1g")
+normal_texture = ExtResource("6_hhfu1")
+specular_texture = ExtResource("7_3d8wl")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_v8gch"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_38lbp"]
+diffuse_texture = ExtResource("8_kj38e")
+normal_texture = ExtResource("6_hhfu1")
+specular_color = Color(1, 0.416, 0.27, 1)
+specular_shininess = 0.53
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7nycg"]
+blend_mode = 3
+
+[sub_resource type="Gradient" id="Gradient_dykwk"]
+offsets = PackedFloat32Array(0.162, 1.325)
+colors = PackedColorArray(0, 0, 0, 0.615686, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_exwb4"]
+gradient = SubResource("Gradient_dykwk")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pa0fe"]
+polygon = PackedVector2Array(643, 120, 654, 120, 646, 120)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i1f1w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrxe6"]
+size = Vector2(154, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scbhc"]
+size = Vector2(16, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8p3sn"]
+size = Vector2(2056, 54.5036)
+
+[sub_resource type="Gradient" id="Gradient_wg4p1"]
+offsets = PackedFloat32Array(0, 0.66129)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kbd6g"]
+gradient = SubResource("Gradient_wg4p1")
+fill_from = Vector2(0.579787, 1)
+fill_to = Vector2(0.537234, 0)
+
+[sub_resource type="Gradient" id="Gradient_6d1de"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0j2gg"]
+gradient = SubResource("Gradient_6d1de")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_c632p")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.78, 0.78, 0.78, 1)
+
+[node name="Background Parallax" type="ParallaxBackground" parent="."]
+follow_viewport_enabled = true
+follow_viewport_scale = 0.95
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background Parallax"]
+texture_repeat = 2
+motion_scale = Vector2(0, 0)
+
+[node name="32RusticBricksTexture" type="Sprite2D" parent="Background Parallax/ParallaxLayer"]
+light_mask = 3
+texture_repeat = 2
+position = Vector2(991.579, -313.684)
+scale = Vector2(0.374929, 0.47978)
+texture = SubResource("CanvasTexture_sfevr")
+region_enabled = true
+region_rect = Rect2(0, -2152, 6648, 5240)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+
+[node name="Collider" type="CollisionPolygon2D" parent="Ground" groups=["area"]]
+modulate = Color(0.2624, 0.48, 0.1536, 1)
+self_modulate = Color(0.2624, 0.48, 0.1536, 1)
+position = Vector2(1590, 82.6044)
+scale = Vector2(0.625, 0.661272)
+polygon = PackedVector2Array(-2825.6, 1169.56, -2825.6, 1508.3, 528, 1502.4, 528, 1169.56)
+
+[node name="Textures" type="Node2D" parent="Ground"]
+
+[node name="Ground_bottom" type="Polygon2D" parent="Ground/Textures"]
+texture_repeat = 2
+position = Vector2(1549.3, -251.695)
+scale = Vector2(0.990498, 0.972136)
+color = Color(0.59, 0.59, 0.59, 1)
+texture = SubResource("CanvasTexture_anxhq")
+texture_scale = Vector2(5, 5)
+polygon = PackedVector2Array(-1968, 1180.59, -534.383, 1180.59, 899.24, 1180.59, 899.245, 1378.09, -534.383, 1378.09, -1968, 1378.09, -1968, 1275.72)
+
+[node name="Ground_top" type="Polygon2D" parent="Ground/Textures"]
+texture_repeat = 2
+material = SubResource("CanvasItemMaterial_v8gch")
+position = Vector2(1552, 434.368)
+scale = Vector2(0.993288, 0.334978)
+color = Color(0.60933, 0.60933, 0.60933, 1)
+texture = SubResource("CanvasTexture_38lbp")
+texture_scale = Vector2(5, 5)
+polygon = PackedVector2Array(-1968, 1180.59, -534.492, 1180.59, 899.245, 1180.59, 899.245, 1277.7, 899.245, 1378.09, -534.383, 1378.1, -1968, 1378.09)
+
+[node name="Grount_bottom_shade" type="Sprite2D" parent="Ground/Textures"]
+material = SubResource("CanvasItemMaterial_7nycg")
+position = Vector2(959.5, 989.5)
+scale = Vector2(30.0469, 2.92187)
+texture = SubResource("GradientTexture2D_exwb4")
+
+[node name="Hoop" type="StaticBody2D" parent="." groups=["area"]]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Hoop"]
+position = Vector2(1143, 736)
+occluder = SubResource("OccluderPolygon2D_pa0fe")
+
+[node name="hoop_back" type="Sprite2D" parent="Hoop"]
+z_index = -1
+position = Vector2(1356, 221)
+scale = Vector2(1.72949, 1.29614)
+texture = ExtResource("9_w0tr1")
+
+[node name="hoop_front" type="Sprite2D" parent="Hoop"]
+z_index = 1
+position = Vector2(1504, 439)
+scale = Vector2(1.7025, 1.255)
+texture = ExtResource("10_xus46")
+
+[node name="HoopCollision" type="CollisionPolygon2D" parent="Hoop" groups=["area"]]
+position = Vector2(1504, 439)
+scale = Vector2(1.7025, 1.255)
+polygon = PackedVector2Array(-18.2085, -377.689, -18.2085, -190.438, -46.9897, -190.438, -46.9897, -171.315, -19.9706, -148.207, -18.2085, -125.896, -9.39795, -125.896, 0, -161.753, 138.62, -129.084, 138.62, 312.351, 115.125, 326.693, 125, 350.6, 187.959, 349.004, 160.94, 310.757, 160.94, -239.044, -4.69897, -279.681, -7.04846, -374.502)
+
+[node name="PointArea2D" type="Area2D" parent="Hoop"]
+
+[node name="PointArea" type="CollisionShape2D" parent="Hoop/PointArea2D"]
+position = Vector2(1344, 240)
+shape = SubResource("CircleShape2D_i1f1w")
+
+[node name="DirectionalCollision" type="CollisionShape2D" parent="Hoop"]
+position = Vector2(1349, 216)
+rotation = 3.14159
+shape = SubResource("RectangleShape2D_wrxe6")
+one_way_collision = true
+
+[node name="CornerCollision" type="CollisionShape2D" parent="Hoop" groups=["area"]]
+position = Vector2(1272, 204)
+shape = SubResource("RectangleShape2D_scbhc")
+debug_color = Color(0.972758, 0.109331, 0.317894, 0.42)
+
+[node name="BasketBall" parent="." groups=["ball"] instance=ExtResource("10_wsxve")]
+position = Vector2(-90, 475)
+linear_velocity = Vector2(300, -650)
+angular_velocity = 0.019984
+ball_scale_mult = 0.8
+pitch_max = 2.5
+
+[node name="Camera2D" type="Camera2D" parent="BasketBall"]
+position = Vector2(0, 2)
+scale = Vector2(1746.51, 2546.22)
+limit_left = 0
+limit_top = -1080
+limit_right = 1920
+limit_bottom = 1080
+position_smoothing_enabled = true
+drag_vertical_enabled = true
+drag_top_margin = 0.45
+drag_bottom_margin = 0.0
+
+[node name="MouseCollider" parent="." instance=ExtResource("11_vvb28")]
+position = Vector2(487, 702)
+rotation = -1.57079
+scale = Vector2(0.338333, 0.327272)
+sync_to_physics = false
+
+[node name="Walls" type="StaticBody2D" parent="." groups=["area"]]
+
+[node name="One Way" type="CollisionShape2D" parent="Walls" groups=["area"]]
+position = Vector2(-147.25, -172)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_8p3sn")
+one_way_collision = true
+one_way_collision_margin = 128.0
+
+[node name="Top - Right" type="CollisionPolygon2D" parent="Walls" groups=["area"]]
+polygon = PackedVector2Array(1912, -1312, 2016, 928, 1952, 928, 1850.94, -1279.82, -120, -1200, -176, -1200, -120, -1240)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(1741, -576)
+scale = Vector2(80.8438, 53.625)
+color = Color(1, 0.656, 0.52, 1)
+range_z_max = 4096
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.419608)
+shadow_filter = 2
+shadow_filter_smooth = 0.5
+texture = SubResource("GradientTexture2D_kbd6g")
+height = 15000.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(897, -922)
+scale = Vector2(34.0469, 38.125)
+texture = SubResource("GradientTexture2D_0j2gg")
+offset = Vector2(0, 20)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreLable" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 26.0
+offset_right = 200.0
+offset_bottom = 95.0
+theme_override_font_sizes/font_size = 50
+text = "Dude Perfects:  0"
+
+[connection signal="body_entered" from="Hoop/PointArea2D" to="." method="_on_area_2d_body_entered"]

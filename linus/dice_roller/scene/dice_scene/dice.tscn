@@ -1,0 +1,106 @@
+[gd_scene load_steps=11 format=3 uid="uid://c04m17ms73heh"]
+
+[ext_resource type="Texture2D" uid="uid://4kd00gp22ltx" path="res://sprite/dice.png" id="2_pe2h8"]
+
+[sub_resource type="GDScript" id="GDScript_3b21n"]
+script/source = "extends Node2D
+
+@onready var sprite: AnimatedSprite2D = $AnimSprite2D	# Ladda animationen i variabeln 'sprite'
+@onready var rolling: bool = false						# Sätt booleanen 'rolling' till false för att ladda in med en förvald statisk animations-frame
+
+func _ready() -> void:
+	rnd_face()	# rnd_face() tar ett random nummer och använder operatorn modulo för att
+
+func _process(delta: float) -> void:
+	if rolling:
+		if not sprite.is_playing():
+			sprite.play(\"roll\")
+	else:
+		if sprite.is_playing():
+			sprite.pause()
+
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed and Input.is_action_pressed(\"left_click\"):
+		rolling = !rolling
+		print(\"Clicked Area2D collision\")
+		if !rolling:
+			print_sprite_face()
+		
+func rnd_face(): 
+	sprite.frame = randi() % sprite.sprite_frames.get_frame_count(\"roll\")
+
+func print_sprite_face():
+	print (\"Face value: \" + str(sprite.frame + 1))
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3hwk"]
+atlas = ExtResource("2_pe2h8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3518"]
+atlas = ExtResource("2_pe2h8")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffj3o"]
+atlas = ExtResource("2_pe2h8")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68pni"]
+atlas = ExtResource("2_pe2h8")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyb0d"]
+atlas = ExtResource("2_pe2h8")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c51sq"]
+atlas = ExtResource("2_pe2h8")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8qm4c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3hwk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3518")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffj3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68pni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyb0d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c51sq")
+}],
+"loop": true,
+"name": &"roll",
+"speed": 30.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfibh"]
+size = Vector2(144, 144)
+
+[node name="Dice" type="Node2D"]
+script = SubResource("GDScript_3b21n")
+
+[node name="AnimSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(72, 72)
+scale = Vector2(2.25, 2.25)
+sprite_frames = SubResource("SpriteFrames_8qm4c")
+animation = &"roll"
+frame = 5
+frame_progress = 0.112049
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(72, 72)
+
+[node name="CollShape2d" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_lfibh")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

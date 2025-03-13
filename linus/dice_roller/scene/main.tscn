@@ -1,0 +1,370 @@
+[gd_scene load_steps=5 format=3 uid="uid://hj52rfk4s3pd"]
+
+[ext_resource type="PackedScene" uid="uid://c04m17ms73heh" path="res://scene/dice_scene/dice.tscn" id="1_04lef"]
+[ext_resource type="Texture2D" uid="uid://5ynjg0qohtq3" path="res://large-dark-green-velvet-fabric-texture-used-as-background-empty-green-fabric-background-of-soft-and-smooth-textile-material-there-is-space-for-text.jpg" id="1_l7ou0"]
+
+[sub_resource type="SystemFont" id="SystemFont_06o73"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q4ffs"]
+font = SubResource("SystemFont_06o73")
+font_size = 150
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.423529)
+shadow_offset = Vector2(-5, 5)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+mouse_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = -12076.0
+offset_top = -7276.0
+offset_right = 13113.0
+offset_bottom = 8063.0
+mouse_filter = 1
+color = Color(0.156358, 0.29, 0.0609, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 2
+offset_left = -176.0
+offset_top = -224.0
+offset_right = 1328.0
+offset_bottom = 728.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Control" type="Control" parent="Control/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer/Control" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control2" type="Control" parent="Control/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer/Control2" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control3" type="Control" parent="Control/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer/Control3" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control4" type="Control" parent="Control/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer/Control4" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control5" type="Control" parent="Control/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer/Control5" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control6" type="Control" parent="Control/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer/Control6" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control7" type="Control" parent="Control/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer/Control7" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control8" type="Control" parent="Control/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer/Control8" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control9" type="Control" parent="Control/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer/Control9" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Control" type="Control" parent="Control/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer2/Control" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control2" type="Control" parent="Control/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer2/Control2" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control3" type="Control" parent="Control/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer2/Control3" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control4" type="Control" parent="Control/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer2/Control4" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control5" type="Control" parent="Control/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer2/Control5" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control6" type="Control" parent="Control/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer2/Control6" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control7" type="Control" parent="Control/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer2/Control7" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control8" type="Control" parent="Control/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer2/Control8" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control9" type="Control" parent="Control/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer2/Control9" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Control" type="Control" parent="Control/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer3/Control" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control2" type="Control" parent="Control/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer3/Control2" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control3" type="Control" parent="Control/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer3/Control3" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control4" type="Control" parent="Control/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer3/Control4" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control5" type="Control" parent="Control/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer3/Control5" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control6" type="Control" parent="Control/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer3/Control6" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control7" type="Control" parent="Control/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer3/Control7" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control8" type="Control" parent="Control/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer3/Control8" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control9" type="Control" parent="Control/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer3/Control9" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Control" type="Control" parent="Control/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer4/Control" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control2" type="Control" parent="Control/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer4/Control2" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control3" type="Control" parent="Control/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer4/Control3" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control4" type="Control" parent="Control/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer4/Control4" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control5" type="Control" parent="Control/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer4/Control5" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control6" type="Control" parent="Control/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer4/Control6" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control7" type="Control" parent="Control/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer4/Control7" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control8" type="Control" parent="Control/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer4/Control8" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Control9" type="Control" parent="Control/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Dice" parent="Control/VBoxContainer/HBoxContainer4/Control9" instance=ExtResource("1_04lef")]
+position = Vector2(0, 248)
+
+[node name="Label" type="Label" parent="."]
+offset_top = -224.0
+offset_right = 1147.0
+offset_bottom = 25.0
+text = "Dice Roller!"
+label_settings = SubResource("LabelSettings_q4ffs")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="title_Dice" parent="." instance=ExtResource("1_04lef")]
+position = Vector2(5, -165)
+
+[node name="title_Dice2" parent="." instance=ExtResource("1_04lef")]
+position = Vector2(1000, -165)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(532, 318)
+scale = Vector2(2.35121, 2.36278)
+texture = ExtResource("1_l7ou0")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(576, 324)

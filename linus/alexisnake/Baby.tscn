@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://3bolvqc2j3hn"]
+
+[ext_resource type="Texture2D" uid="uid://cjd7rhv543x26" path="res://Sprites/baby-sheet.png" id="1_pg7oi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvlnj"]
+atlas = ExtResource("1_pg7oi")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7isjw"]
+atlas = ExtResource("1_pg7oi")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b48xg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvlnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7isjw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(16, 16)
+
+[node name="Baby" type="Node2D"]
+
+[node name="Animated_sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_b48xg")
+frame_progress = 0.597191
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_lquwl")
