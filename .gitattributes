@@ -1,2 +1,8 @@
 # Normalize EOL for all files that Git considers text files.
 * text=auto eol=lf
+*.html linguist-detectable=false
+*.css linguist-detectable=false
+*.js linguist-detectable=false
+*.gd linguist-detectable=true
+*.tscn linguist-detectable=true
+*.import linguist-detectable=true
